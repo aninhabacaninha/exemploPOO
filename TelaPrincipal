@@ -1,0 +1,37 @@
+package tela;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+
+public class TelaPrincipal extends JFrame {
+	JLabel label1, label2, label3;
+	JButton btnPesquis, btnLimpar, btnSalvar;
+	JPanel pan = new JPanel();
+	
+	public TelaPrincipal() {
+		label1 = new JLabel("Sistema para Controle de Biblioteca");
+		label2 = new JLabel("Dados do Funcionário");
+		label3 = new JLabel("Dados dos Livros");
+		
+	   //tabela
+		JTable tabela = new JTable();
+		 String[] colunas = {"N° Exemplar", "Nome", "Editora", "Ação"};
+		 Object[][] dados = {
+				{"", "", "", ""},
+				{"", "", "", ""},
+				{"", "", "", ""},
+				{"", "", "", ""}
+		 };
+		add(tabela);
+		
+		pan.add(label1);
+		add(pan);
+	}
+	
+	public static void main(String[] args) {
+		new TelaPrincipal();
+	}
+}
