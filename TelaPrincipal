@@ -6,19 +6,29 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class TelaPrincipal extends JFrame {
 	JLabel label1, label2, label3;
 	 JLabel frase01, frase02, frase03;
-	 JLabel frase04, frase05, frase06;
-	 JTextField linha01, linha02, linha03;
-	JButton btnPesquis1, btnLimpar;
+	 JLabel frase04, frase05, frase06, frase07;
+	 JTextField linha01, linha02, linha03, linha04;
+	 JButton btnPesquis1, btnLimpar, btnPesquis2, btnSalvar;
+	 JTable tabela;
+	 String[] colunas = {"N° Exemplar", "Nome", "Editora", "Ação"};
+ 	 Object [][] dados = {
+ 			 {"", "", "", ""},
+ 			 {"", "", "", ""},
+ 			 {"", "", "", ""}
+ 	 };
 	
 	JPanel panel1 = new JPanel();
 	JPanel panel2 = new JPanel();
 	JPanel panel3 = new JPanel();
-	//JPanel panTabela = new JPanel();
+	JPanel panTabela = new JPanel();
+	JScrollPane barra;
 	
 	public TelaPrincipal() {
 	   //Primeiro JPanel
@@ -42,18 +52,47 @@ public class TelaPrincipal extends JFrame {
 		 add(label2);
 		
 		frase04 = new JLabel("Matrícula");
-		 frase04.setBounds(5, 100, 100, 100);
+		 frase04.setBounds(10, -25, 100, 100);
 		 panel2.add(frase04);
 		linha01 = new JTextField();
+		 linha01.setBounds(10, 40, 100, 40);
+		 panel2.add(linha01);
 		btnPesquis1 = new JButton("Pesquisar");
+		 btnPesquis1.setBounds(122, 40, 100, 40);
+		 panel2.add(btnPesquis1);
 		frase05 = new JLabel("Número OAB");
+		 frase05.setBounds(260, -25, 100, 100);
+		 panel2.add(frase05);
 		linha02 = new JTextField();
+		 linha02.setBounds(260, 40, 100, 40);
+		 panel2.add(linha02);
 		frase06 = new JLabel("Nome");
+		 frase06.setBounds(400, -25, 100, 100);
+		 panel2.add(frase06);
 		linha03 = new JTextField();
+		 linha03.setBounds(400, 40, 250, 40);
+		 panel2.add(linha03);
+		btnLimpar = new JButton("Limpar");
+		 btnLimpar.setBounds(680, 40, 100, 40);
+		 panel2.add(btnLimpar);
 		
 		label3 = new JLabel("Dados dos Livros");
 		 label3.setBounds(5, 230, 150, 100);
 		 add(label3);
+		 
+		 frase07 = new JLabel("N°Exemplar");
+		  frase07.setBounds(10, -25, 100, 100);
+		  panel3.add(frase07);
+		 linha04 = new JTextField();
+		  linha04.setBounds(10, 40, 100, 40);
+		  panel3.add(linha04);
+		 btnPesquis2 = new JButton("Pesquisar");
+		  btnPesquis2.setBounds(122, 40, 100, 40);
+		  panel3.add(btnPesquis2);
+		  
+		 btnSalvar = new JButton("Salvar");
+		  btnSalvar.setBounds(460, 630, 100, 40);
+		  add(btnSalvar);
 	   
 	   //Primeiro JPanel
 	    add(panel1);
@@ -72,18 +111,18 @@ public class TelaPrincipal extends JFrame {
 	    panel3.setLayout(null);
 	    panel3.setBounds(0, 300, 1000, 100);
 	    panel3.setBackground(Color.LIGHT_GRAY);
+	   
+	   //JPanel tabela
+	    add(panTabela);
+	    panTabela.setLayout(null);
+	    panTabela.setBounds(0, 410, 1000, 200);
+	    panTabela.setBackground(Color.LIGHT_GRAY);
 	    
-	  //tabela
-	  		//JTable tabela = new JTable(colunas, dados);
-	  		 //String[] colunas = {"N° Exemplar", "Nome", "Editora", "Ação"};
-	  		 //Object[][] dados = {
-	  			//	{"", "", "", ""},
-	  			//	{"", "", "", ""},
-	  			//	{"", "", "", ""},
-	  			//	{"", "", "", ""}
-	  		// };
-	  		 
-	  		//panTabela.add(tabela);
+	    JScrollPane barra = new JScrollPane(tabela);
+	    panTabela.add(barra);
+	    barra.setBounds(10, 10, 900, 100);
+	    
+	    tabela = new JTable(dados, colunas);
 		
 	    setLayout(null);
 	    setSize(1000, 800);
